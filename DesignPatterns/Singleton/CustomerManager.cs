@@ -10,14 +10,23 @@ namespace Singleton
     {
         private static CustomerManager _customerManager;
         private string _uniqeKey;
+        private static object _lockObkect = new object();
         private CustomerManager()
         {
             _uniqeKey = Guid.NewGuid().ToString();
         }
 
         public static CustomerManager CreateAsSingleton()
-        {
-            return _customerManager ?? (_customerManager = new CustomerManager());
+        {        
+            lock (_lockObkect)
+            {
+                if (_customerManager == null)
+                {
+                    _customerManager = new CustomerManager();
+                }
+            }
+
+            return _customerManager;
         }
 
         public void GenerateGuid()
