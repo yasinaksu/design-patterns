@@ -10,6 +10,11 @@ namespace FactoryMethod
     {
         static void Main(string[] args)
         {
+            //CustomerManager customerManager = new CustomerManager(new LoggerFactory());
+            CustomerManager customerManager = new CustomerManager(new AnotherLoggerFactory());
+            customerManager.Save();
+
+            Console.ReadLine();
         }
     }
 }
