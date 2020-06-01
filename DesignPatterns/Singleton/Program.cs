@@ -10,6 +10,13 @@ namespace Singleton
     {
         static void Main(string[] args)
         {
+            var customerManager1 = CustomerManager.CreateAsSingleton();
+            var customerManager2 = CustomerManager.CreateAsSingleton();
+
+            customerManager1.GenerateGuid();
+            customerManager2.GenerateGuid();
+
+            Console.ReadLine();
         }
     }
 }
