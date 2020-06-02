@@ -43,8 +43,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Caching.cs" />
+    <Compile Include="CrossCuttingConcernsFactory.cs" />
+    <Compile Include="Log4NetLogger.cs" />
+    <Compile Include="Logging.cs" />
+    <Compile Include="MemCache.cs" />
+    <Compile Include="NLogger.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RedisCache.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
