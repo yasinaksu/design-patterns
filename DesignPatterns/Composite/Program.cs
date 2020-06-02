@@ -11,6 +11,30 @@ namespace Composite
     {
         static void Main(string[] args)
         {
+            var manager = new Employee { Name = "Manager" };
+            var chief1 = new Employee { Name = "Chief 1" };
+            var chief2 = new Employee { Name = "Chief 2" };
+            manager.AddSubordinate(chief1);
+            manager.AddSubordinate(chief2);
+
+            var employee1 = new Employee { Name = "Employee 1" };
+            var employee2 = new Employee { Name = "Employee 2" };
+            var employee3 = new Employee { Name = "Employee 3" };
+            chief1.AddSubordinate(employee1);
+            chief1.AddSubordinate(employee2);
+            chief2.AddSubordinate(employee3);
+
+            Console.WriteLine(manager.Name);
+
+            foreach (Employee chiefInManager in manager)
+            {
+                Console.WriteLine(" "+ chiefInManager.Name);
+                foreach (Employee employeeInChief in chiefInManager)
+                {
+                    Console.WriteLine("  "+ employeeInChief.Name);
+                }
+            }
+            Console.ReadLine();
         }
     }
 
